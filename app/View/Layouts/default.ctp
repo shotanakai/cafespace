@@ -42,8 +42,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<?php echo $this->element('header') ?>
 		</div>
 		<div id="content" class="container">
-			<?php echo $this->fetch('content'); ?>
-			<?php echo $this->element('sidebar'); ?>
+			<?php echo $this->element('breadcrumbs'); ?>
+			<div class="row">
+				<?php echo $this->fetch('content'); ?>
+				<?php echo $this->element('sidebar'); ?>
+			</div>
 		</div>
 		<div id="footer">
 			<?php echo $this->element('footer'); ?>
