@@ -25,10 +25,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		<?php echo $cakeDescription ?>:
 		<?php echo $this->fetch('title'); ?>
 	</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<?php
 		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('bootstrap');
+		echo $this->Html->script('bootstrap.min.js');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -38,24 +39,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+			<?php echo $this->element('header') ?>
 		</div>
-		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
-
+		<div id="content" class="container">
 			<?php echo $this->fetch('content'); ?>
+			<?php echo $this->element('sidebar'); ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
-			<p>
-				<?php echo $cakeVersion; ?>
-			</p>
+			<?php echo $this->element('footer'); ?>
 		</div>
 	</div>
 </body>
